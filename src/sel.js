@@ -74,7 +74,8 @@
         var RECURSION_LIMIT = 15;
 
         var globalContext = new Context();
-        self.getGlobalContext = function () {
+
+        self.getContext = function () {
             return globalContext;
         };
 
@@ -193,18 +194,18 @@
     /*--------------------------------------------------------------------------*/
     // expose SEL
     var sel = {
-        getContext: function () {
+        createContext: function () {
             return new Context();
         },
-        getEvaluator: function () {
+        createEvaluator: function () {
             return new Evaluator();
         },
-        getDefaultContext: function () {
+        createDefaultContext: function () {
             return populateContextByDefaultHandlers(new Context());
         },
-        getDefaultEvaluator: function () {
+        createDefaultEvaluator: function () {
             var evaluator = new Evaluator();
-            populateContextByDefaultHandlers(evaluator.getGlobalContext());
+            populateContextByDefaultHandlers(evaluator.getContext());
             return evaluator;
         }
     };

@@ -1,25 +1,34 @@
 {
   "name": "sel",
   "version": "0.1.0",
-  "description": "",
-  "main": "",
+  "main": "dist/sel.js",
+  "license": "MIT",
+  "author": "alex-bes",
+  "homepage": "http://logicify.github.io/sel/",
+  "description": "SEL - is a simple and lightweight expression language which can be used in your application for extending configuration abilities. This package provides JS implementation for the parser and evaluator.",
+  "bugs": {
+    "url": "https://github.com/Logicify/sel-js/issues"
+  },
   "directories": {
-    "test": "test"
+    "test": "test",
+    "dist": "dist"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "grunt",
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Logicify/sel-js.git"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
+    "chai": "^1.9.1",
     "grunt": "~0.4.5",
     "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-concat": "~0.5.1",
     "grunt-contrib-uglify": "~0.8.0",
-    "load-grunt-tasks": "~3.1.0"
+    "grunt-mocha-test": "^0.12.7",
+    "load-grunt-tasks": "~3.1.0",
+    "mocha": "^1.20.1"
   }
 }

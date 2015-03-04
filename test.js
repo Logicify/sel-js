@@ -1,7 +1,7 @@
 var sel = require('./src/sel');
 
-var evaluator = sel.getDefaultEvaluator();
-var context = sel.getContext();
+var evaluator = sel.createDefaultEvaluator();
+var context = sel.createContext();
 
 context.registerValue('firstVar', 'hello');
 context.registerValue('secondVar', 'word');

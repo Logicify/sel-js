@@ -26,6 +26,17 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec',
+                    //captureFile: 'test-results.txt', // Optionally capture the reporter output to a file
+                    quiet: false, // Optionally suppress output to standard out (defaults to false)
+                    clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
+                },
+                src: ['test/**/*.js']
+            }
+        },
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -58,10 +69,21 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', [
+    grunt.registerTask('compile', [
         'clean:dist',
         'uglify:minimize',
         'uglify:beautify'
     ]);
 
+    grunt.registerTask('test', [
+        'compile',
+        'mochaTest'
+    ]);
+
+    grunt.registerTask('build', [
+        'compile',
+        'test'
+    ]);
+
+    grunt.registerTask('default', 'build');
 };
