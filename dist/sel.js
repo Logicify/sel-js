@@ -1,4 +1,4 @@
-/*! sel - v0.1.0 - 2015-03-04 */
+/*! sel - v0.1.0 - 2015-03-04 | Logicify | MIT License (https://raw.githubusercontent.com/Logicify/sel-js/master/LICENSE)*/
 (function() {
     var root = typeof window == "object" && window || this;
     var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
@@ -120,8 +120,8 @@
         context.registerHandler("anyOf", function(argString) {
             argString = argString.toLowerCase();
             var args = argString.split(",");
-            for (var arg in args) {
-                if (args[arg].trim() == "true") {
+            for (var i = 0; i < args.length; i++) {
+                if (args[i].trim() == "true") {
                     return true;
                 }
             }
@@ -130,8 +130,8 @@
         context.registerHandler("allOf", function(argString) {
             argString = argString.toLowerCase();
             var args = argString.split(",");
-            for (var arg in args) {
-                if (args[arg].trim() != "true") {
+            for (var i = 0; i < args.length; i++) {
+                if (args[i].trim() != "true") {
                     return false;
                 }
             }
